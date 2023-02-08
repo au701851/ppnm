@@ -1,0 +1,7 @@
+I have calculated my max int to be = 2147483647
+The int.MaxValue is 2147483647
+I have calculated my min int to be = -2147483648
+The int.MinValue is -2147483648
+The difference between 1.0 and the next double = 2.22044604925031E-16
+The difference between 1.0 and the next float = 5.960464E-08
+For reference we have 2^(-24) = 5.96046447753906E-08, and 2^(-52) = 2.22044604925031E-16
