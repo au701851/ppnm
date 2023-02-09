@@ -1,0 +1,25 @@
+A vector created with no components: 0 0 0
+Vector a: 1 2 3
+Vector b: -2 4.5 1
+-------------------------
+a + b = -1 6.5 4
+a - b = 3 -2.5 2
+-b = 2 -4.5 -1
+-------------------------
+2*a = 2 4 6
+a*3.5 = 3.5 7 10.5
+-------------------------
+Testing the to string method by printing a: 1 2 3
+-------------------------
+a dot b = 10
+The norm of b is 5.02493781056044
+-------------------------
+a cross b = -11.5 -7 8.5
+b cross a = 11.5 7 -8.5
+-------------------------
+Testing addition by affirming Cauchy Schwarz ...
+...passed
+Testing dot product less than |v||u| ...
+...passed
+Testing u dot (a*v + b*w) = a*(u dot v) + b*(u dot w)...
+...passed

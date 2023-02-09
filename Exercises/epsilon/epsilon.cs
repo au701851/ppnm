@@ -16,7 +16,7 @@ class epsilon{
 			}
 		Write("I have calculated my min int to be = {0}\n", j);
 		Write("The int.MinValue is {0}\n", int.MinValue);
-		Write("-----------------------------------------");
+		Write("-----------------------------------------\n");
 	
 		double x = 1;
 		while(1+x!=1){
@@ -24,7 +24,7 @@ class epsilon{
 		x*= 2;
 
 		Write("The difference between 1.0 and the next double = {0}\n", x);
-		Write("-----------------------------------------");
+		Write("-----------------------------------------\n");
 		
 
 		float y = 1F;
@@ -32,8 +32,17 @@ class epsilon{
 			y/=2F;}
 		Write("The difference between 1.0 and the next float = {0}\n", y);
 		Write("For reference we have 2^(-24) = {0}, and 2^(-52) = {1}\n", Pow(2, -24), Pow(2, -52));
-		Write("-----------------------------------------");
+		Write("-----------------------------------------\n");
 
+		calculations.sumAsumB();
+		Write("------------------------------------------\n");
+
+		Write("10 is equal to 10? {0}\n", (calculations.approx(10, 10) ? "True" : "False"));
+		Write("3 is equal to 4? {0}\n", (calculations.approx(3,4) ? "True" : "False"));
+		Write("10.000000001 is equal to 10? {0}\n", (calculations.approx(10.000000001, 10) ? "True" : "False"));
+		Write("10.0000001 is equal to 10? {0}\n", (calculations.approx(10.0000001, 10) ? "True" : "False"));
+		
+		
 		
 	
 	}

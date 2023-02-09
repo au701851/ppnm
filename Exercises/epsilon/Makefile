@@ -1,8 +1,11 @@
-out.txt : epsilon.exe              # out.txt depends on hello.exe
-	mono epsilon.exe epsilon.exe > out.txt # run hello.exe, send output to out.txt
+Out.txt: main.exe
+	mono main.exe > Out.txt
+	#mono kører main filen
+	#> means override, the >> just adds to bottom
+#make kører første rule i Makefile-filen
 
-epsilon.exe : epsilon.cs             # hello.exe depends on hello.cs
-	mcs epsilon.cs             # compile hello.cs into hello.exe
+epsilon.dll: epsilon.cs calculations.cs
+	mcs epsilon.cs calculations.cs -target:library -out:epsilon.dll 
 
-clean:                           # a phoney target, no dependencies
-	rm -f out.txt epsilon.exe  # remove secondary files
+main.exe: epsilon.cs epsilon.dll
+	mcs epsilon.cs -reference:epsilon.dll -target:exe -out:main.exe
