@@ -1,0 +1,17 @@
+set terminal svg
+set output "Lngamma.svg"
+set xlabel "x"
+set ylabel "LnGamma(x)"
+
+set key top right
+unset border
+
+set xzeroaxis linetype -1 linewidth 0.5
+set yzeroaxis linetype -1 linewidth 0.5
+set xtics axis
+set ytics axis
+#Moves the tics to the zero-axis
+plot [-0.5:5][-0.5:5]\
+	"lngamma_fun.txt" with lines \
+	title "Logarithm of gamma function"
+
