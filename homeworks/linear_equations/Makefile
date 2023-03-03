@@ -2,8 +2,11 @@ TIME = time --portability --append --output $@
 
 Out.txt: main.exe
 	mono $< > $@
-	
-partc.txt: ocounting.exe
+
+Graph.svg: graph.gpi table.txt
+	gnuplot $<
+
+timed_QR.txt: ocounting.exe
 	echo N 100 >$@
 	$(TIME) mono $< -N:100 >>$@
 	echo N 200 >>$@
@@ -17,6 +20,12 @@ partc.txt: ocounting.exe
 	echo N 600 >>$@
 	$(TIME) mono $< -N:600 >>$@
 
+table.txt: timed_QR.txt transform.exe
+	mono $(filter %.exe, $^) < $^ > $@
+
+transform.exe: transform.cs
+	mcs $< -target:exe -out:$@
+
 main.exe: main.cs matrix.dll lineq.dll
 	mcs $< -target:exe $(addprefix -reference:, $(filter %.dll, $^)) -out:$@
 
@@ -27,3 +36,6 @@ matrix.dll: vec.cs matrix.cs
 	mcs -target:library -out:$@ $^
 lineq.dll: lineq.cs matrix.dll
 	mcs -target:library $(addprefix -reference:, $(filter %.dll, $^)) -out:$@ $<
+
+clean: 
+	rm -f *.dll *.txt *.exe *.svg

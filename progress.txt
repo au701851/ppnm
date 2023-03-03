@@ -1,0 +1,13 @@
+Done exercises:
+hello
+multiprocessing
+epsilon
+math
+generic_list
+plots
+vec
+input_output
+
+To-do:
+Check results of complex
+move exercises from the homeworks folder

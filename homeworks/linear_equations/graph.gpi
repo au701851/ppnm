@@ -1,0 +1,12 @@
+set terminal svg
+set output "Graph.svg"
+set xlabel "size of matrix"
+set ylabel "user time of QR-decomposition"
+
+set key bottom right
+
+#Moves the tics to the zero-axis
+plot [0:1000][0:3]\
+	"table.txt" with points \
+	title "user time"
+
