@@ -1,7 +1,8 @@
 TIME = time --portability --append --output $@
 
-Out.txt: main.exe
+Out.txt: main.exe Graph.svg
 	mono $< > $@
+	echo My graph of the fit from part c. can be seen in "Graph.svg" >>$@
 
 Graph.svg: graph.gpi table.txt
 	gnuplot $<

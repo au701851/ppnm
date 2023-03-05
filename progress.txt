@@ -8,6 +8,9 @@ plots
 vec
 input_output
 
+Done homework:
+linear equations (part a, b and c)
+
 To-do:
 Check results of complex
 move exercises from the homeworks folder

@@ -1,0 +1,31 @@
+For part a. I had to program a Jacobi diagonalization method. 
+The program is in the file jacobi.cs, and the result of my testing it can be seen below:
+
+Testing jacobi.cyclic ...
+Testing V^TAV = D ...
+... passed
+Testing VDV^T = A...
+... passed
+Testing V^TV = 1...
+... passed
+Testing VV^T = 1...
+... passed
+All tests passed!
+
+
+
+In part b, I used my jacobi routine to find permitted energies for the hydrogen atom, by solving an eigen-value problem.
+
+Calculated lowest energy: -0.489228337557276 
+(Should be -(E_h)/2 = -0.5 in units of E_h)
+I expect f to be given by r*psi100, and can as such write out the expected values of f. For the first three elements, these are:
+Exact result		Numerical result
+0.125388577023302	0.239304624013055
+0.185780285048431	0.356099902618505
+0.206444130310981	0.397423759207921
+These results are evidently a factor 2 off... Hmmm
+
+
+
+
+Varying dr from 0.05 to 0.3 and rmax from 1 to 20, I have collected som data in varying_dr.txt and varying_rmax.txt

@@ -1,12 +1,21 @@
-set terminal svg
+set terminal svg font "Times New Roman, 18"
 set output "Graph.svg"
+set fit logfile "fit.log"
+set fit quiet
+#Setting fit quiet stops it from printing its log on screen
+
 set xlabel "size of matrix"
 set ylabel "user time of QR-decomposition"
 
-set key bottom right
+set key left
 
-#Moves the tics to the zero-axis
-plot [0:1000][0:3]\
+f(x) = a*x**2 + b*x + c
+g(x) = d*x**3 + e*x**2 + f*x + g
+
+fit f(x) 'table.txt' via a, b, c
+fit g(x) 'table.txt' via d, e, f, g
+
+plot [0:700][0:3]\
 	"table.txt" with points \
-	title "user time"
-
+	title "user time",\
+	f(x) title "fit to second order polynomium", g(x) title "fit to third order polynomium"
