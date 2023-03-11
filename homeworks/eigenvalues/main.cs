@@ -53,8 +53,7 @@ WriteLine("\n\n\nIn part b, I used my jacobi routine to find permitted energies 
 hydrogen_atom.test();
 
 WriteLine("\n\nVarying dr from 0.05 to 0.3 and rmax from 1 to 20, I have collected som data in varying_dr.txt and varying_rmax.txt");
-hydrogen_atom.varying_dr();
-hydrogen_atom.varying_rmax();
+
 }
 
 

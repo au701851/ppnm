@@ -4,10 +4,27 @@ using System.IO;
 
 public class hydrogen_atom{
 public static bool testing = false;
+public static double RMAX, DR;
+
+public static void Main(string[] args){
+	testing = false;
+	RMAX = 6;
+	DR = 0.3; //default values
+	foreach(var arg in args){
+	var words = arg.Split(':');
+	if(words[0] == "-rmax")
+		RMAX = double.Parse(words[1]);
+	if(words[0] == "-dr")
+		DR = double.Parse(words[1]);
+	if(words[0] == "-test")
+		testing = bool.Parse(words[1]);}
+	double eps = find_lowest_energy(RMAX, DR);
+	WriteLine($"{RMAX} {DR} {eps}");
+}	
 
 public static void test(){
 	double rmax = 10; //Bohr radii
-	double dr = 0.3; //step length
+	double dr = 0.2; //step length
 
 	testing = true;
 	find_lowest_energy(rmax, dr);
@@ -60,13 +77,29 @@ public static double find_lowest_energy(double rmax, double dr){
 	if(testing){
 		//The lowest energy is the first eigenvalue
 		WriteLine($"Calculated lowest energy: {H[0,0]} \n(Should be -(E_h)/2 = -0.5 in units of E_h)");
-		WriteLine($"I expect f to be given by r*psi100, and can as such write out the expected values of f. For the first three elements, these are:");
-		WriteLine($"Exact result		Numerical result");
-		for(int i = 0; i < 3; i++){
-			double exp_fi = r[i]*1.0/Sqrt(PI)*Exp(-r[i]);
-			WriteLine($"{exp_fi}	{V[i, 0]}"); 
+		for(int i = 0; i < H.size1; i++){
+			WriteLine($"E_0/E_{i} = {H[0,0]/H[i,i]} (should be {i^2})");
+		}
+		
+		WriteLine($"I expect f to be given by r*psi100, and can as such write out the expected values of f. These are in the data files 'first eigenvector' and 'second eigenvector', and are plotted in 'Lowest eigenvectors'.");
+		WriteLine($"I found these values to be off from their expected values, and realised that it had something to do with the normalisation:");
+		WriteLine($"first eigenvector square norm: {V[0].norm()}, Second eigenvector square norm: {V[1].norm()}");
+		WriteLine($"That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state.");
+		
+
+		var outfile = new System.IO.StreamWriter("first_eigenvector.data");
+		var outfile2 = new System.IO.StreamWriter("second_eigenvector.data");
+		outfile.WriteLine($"Delta r		Exact result		Numerical result");
+		outfile2.WriteLine($"Delta r		Exact result		Numerical result");
+		double exp_fi = 0;
+		for(int i = 0; i < V.size1; i++){
+			exp_fi = r[i]*1.0/Sqrt(PI)*Exp(-r[i]);
+			outfile.WriteLine($"{r[i]}	{exp_fi}	{V[i, 0]}");
+			exp_fi = r[i]*1.0/Sqrt(8.0*PI)*(1.0 - 1.0/2.0*r[i])*Exp(-r[i]/2);
+			outfile2.WriteLine($"{r[i]}	{exp_fi}	{V[i, 1]}");
 			}
-		WriteLine($"These results are evidently a factor 2 off... Hmmm\n\n");
+		outfile.Close();
+		outfile2.Close();
 	}
 
 	double lowest_energy = H[0,0];

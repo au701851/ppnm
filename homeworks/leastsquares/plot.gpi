@@ -1,0 +1,18 @@
+set terminal svg font "Times New Roman, 18"
+set output "Plot.svg"
+
+set xlabel "Time (days)"
+set ylabel "Activity of ThX (relative units)"
+
+set key right
+
+a = 4.9511553496486
+lambda = -0.169887082001008
+
+f(x) = exp(a)*exp(lambda*x)
+
+plot [0:15][0.0:120.0]\
+	"rad_decay_formatted.txt" using ($1):($2):($4) with errorbars \
+	title "Data from Rutherford and Soddy",\
+	f(x) with lines dt 2 title "Best fit" 
+

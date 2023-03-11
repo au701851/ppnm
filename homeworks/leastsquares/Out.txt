@@ -1,0 +1,3 @@
+The vector with the best fit vaues of a and lambda is:
+      4.95      -0.17 
+... which yields a half-life of 4.08004641904341 -- today we know the value to be 3.5

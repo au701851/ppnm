@@ -12,9 +12,9 @@ set key right
 f(x) = -0.5
 
 plot [0:1.5][-0.6:0.1]\
-	"varying_dr.txt" with lines \
+	"varying_dr.data" using ($2):($3) with points \
 	title "Varying dr with r_{max} = 6",\
-	"varying_rmax.txt" using ($1 / 10):($2) with lines \
+	"varying_rmax.data" using ($1 / 10):($3) with points \
 	title "Varying r_{max} with dr = 0.3", \
 	f(x) with lines dt 2 title "Expected value" 
 

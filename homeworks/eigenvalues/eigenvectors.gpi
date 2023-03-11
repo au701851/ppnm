@@ -1,0 +1,22 @@
+set terminal svg font "Times New Roman, 18"
+set output "Eigenvectors.svg"
+
+set xlabel "r"
+set ylabel "{\psi(r)}"
+
+set key bottom right
+set key font ",14"
+
+f1(x) = x*1.0/sqrt(pi)*exp(-x)/sqrt(pi/4.0)
+f2(r) = r*1.0/sqrt(8*pi)*(1.0-r/2.0)*exp(-r/2.0)*sqrt(4*pi)
+
+plot [0:10][-0.2:0.3]\
+	"first_eigenvector.data" using ($1):($3) with points pt 7 ps 0.3 lc rgb "blue" \
+	title "First eigenvector, calculated values",\
+	f1(x) with lines dt 1  lc rgb "blue"\
+	title "First eigenvector, expected values",\
+	"second_eigenvector.data" using ($1):($3) with points pt 7 ps 0.3  lc rgb "red" \
+	title "Second eigenvector, calculated values", \
+	f2(x) with lines dt 1  lc rgb "red"\
+	title "Second eigenvector, expected values" 
+

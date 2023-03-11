@@ -1,5 +1,5 @@
 using System;
-public class lineq{
+public partial class lineq{
 	//Perform QR decomposition by Gram Schmidt orthogonalization
 	public static void QRGSdecomp(ref matrix A, ref matrix R){
 		if(A.size1 < A.size2){ 

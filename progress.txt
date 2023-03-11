@@ -10,7 +10,8 @@ input_output
 
 Done homework:
 linear equations (part a, b and c)
+eigenvalues (part a, part b except plotting the eigenfunctions)
+least squares (part a)
 
 To-do:
 Check results of complex
-move exercises from the homeworks folder

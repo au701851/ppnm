@@ -144,13 +144,16 @@
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(148,   0, 211)'  d='M473.09,54.01 L536.99,54.01 M562.19,246.69 L552.75,248.08 L543.30,249.46 L533.86,250.83 L524.42,252.17 L514.97,253.48
-		L505.53,254.76 L496.09,256.00 L486.64,257.18 L477.20,258.29 L467.75,264.23 L458.31,265.78 L448.87,267.29 L439.42,268.76
-		L429.98,270.18 L420.54,271.52 L411.09,275.52 L401.65,277.13 L392.21,278.69 L382.76,280.17 L373.32,281.56 L363.88,284.81
-		L354.43,286.37 L344.99,287.83 L335.55,290.47 L326.10,292.00 L316.66,293.41 L307.21,295.75 L297.77,297.15 L288.33,299.22
-		L278.88,300.52 L269.44,302.40 L260.00,304.09 L250.55,305.22 L241.11,306.74 L231.67,308.12 L222.22,309.69 L212.78,310.79
-		L203.34,312.00 L193.89,313.02 L184.45,314.03 L175.00,314.82 L165.56,315.62 L156.12,316.22 L146.67,316.79 L137.23,317.20
-		L127.79,317.50 L118.34,317.68  '/></g>
+	<use xlink:href='#gpPt0' transform='translate(350.65,286.97) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(380.87,280.46) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(290.22,298.93) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(260.00,304.09) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(320.44,292.86) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(229.78,308.66) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(199.56,312.47) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(169.34,315.34) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt0' transform='translate(505.04,54.01) scale(6.75)' color='rgb(148,   0, 211)'/>
+</g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>Varying rmax with dr = 0.3</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
@@ -159,13 +162,16 @@
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0, 158, 115)'  d='M473.09,81.01 L536.99,81.01 M168.27,27.01 L169.34,53.75 L176.89,157.23 L184.45,216.81 L192.00,252.52 L199.56,274.54
-		L207.11,274.54 L214.67,288.37 L222.22,297.18 L229.78,302.82 L237.33,306.44 L244.89,308.77 L252.44,308.77 L260.00,310.27
-		L267.55,311.23 L275.11,311.84 L282.66,312.22 L290.22,312.47 L297.77,312.47 L305.33,312.62 L312.88,312.71 L320.44,312.77
-		L327.99,312.81 L335.55,312.83 L343.10,312.83 L350.65,312.84 L358.21,312.85 L365.76,312.85 L373.32,312.86 L380.87,312.86
-		L388.43,312.86 L395.98,312.86 L403.54,312.86 L411.09,312.86 L418.65,312.86 L426.20,312.86 L433.76,312.86 L441.31,312.86
-		L448.87,312.86 L456.42,312.86 L463.98,312.86 L471.53,312.86 L479.09,312.86 L486.64,312.86 L494.20,312.86 L501.75,312.86
-		L509.31,312.86 L516.86,312.86 L524.42,312.86 L531.97,312.86 L539.53,312.86 L547.08,312.86 L554.64,312.86  '/></g>
+	<use xlink:href='#gpPt1' transform='translate(169.34,53.75) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(199.56,274.54) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(229.78,302.82) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(260.00,310.27) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(290.22,312.47) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(320.44,312.77) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(350.65,312.84) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(380.87,312.86) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(505.04,81.01) scale(6.75)' color='rgb(  0, 158, 115)'/>
+</g>
 	</g>
 	<g id="gnuplot_plot_3" ><title>Expected value</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">

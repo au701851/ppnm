@@ -1,5 +1,8 @@
 using System;
 using static System.Math;
+using System.Threading;
+public class data{public double theta; public int p, q; public matrix A;}
+
 public class jacobi{
 
 public static void timesJ(matrix A, int p, int q, double theta){
@@ -16,6 +19,11 @@ for(int i = 0; i<A.size1; i++){
 	A[i, p] = c*aip - s*aiq;
 	A[i, q] = s*aip + c*aiq;
 }
+}
+
+public static void timesJ(object O){
+	data x = (data) O;
+	timesJ(x.A, x.p, x.q, x.theta);
 }
 
 public static void Jtimes(matrix A, int p, int q, double theta){
@@ -65,7 +73,9 @@ do{
 			timesJ(A, p, q, theta);
 			Jtimes(A, p, q, -theta); //since J^T = J(-theta)
 			// A <- J^T*A*J
-			timesJ(V, p, q, theta);
+			data x = new data(); x.p = p; x.q = q; x.theta = theta; x.A = V; 
+			Thread t = new Thread(timesJ); 
+			t.Start(x); t.Join();
 			//V is determined as V = I*J_1*J_2...
 		}
 	}
