@@ -132,14 +132,33 @@
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
-	<g id="gnuplot_plot_1" ><title>Data from Rutherford and Soddy</title>
+	<g id="gnuplot_plot_1" ><title>Fit with error on parameters</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<g transform="translate(460.49,59.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
+		<text><tspan font-family="Times New Roman" >Fit with error on parameters</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g stroke='none' shape-rendering='crispEdges'>
+		<polygon fill = 'rgb(148,   0, 211)' fill-opacity = '0.200000' points = '473.09,60.76 536.99,60.76 536.99,47.26 473.09,47.26 '/>
+		<polygon fill = 'rgb(148,   0, 211)' fill-opacity = '0.200000' points = '168.23,27.01 131.06,27.01 131.79,28.57 136.37,38.22 140.95,47.61 145.53,56.76 150.11,65.66 154.69,74.33 159.27,82.77 163.84,90.99 168.42,98.99 173.00,106.78 177.58,114.36 182.16,121.75 186.74,128.93 191.32,135.93
+195.90,142.74 200.47,149.38 205.05,155.83 209.63,162.12 214.21,168.24 218.79,174.20 223.37,180.00 227.95,185.64 232.52,191.14 237.10,196.49 241.68,201.71 246.26,206.78 250.84,211.72 255.42,216.53 260.00,221.21 264.58,225.77
+269.15,230.20 273.73,234.52 278.31,238.73 282.89,242.82 287.47,246.81 292.05,250.69 296.63,254.47 301.20,258.15 305.78,261.73 310.36,265.21 314.94,268.61 319.52,271.91 324.10,275.13 328.68,278.26 333.26,281.31 337.83,284.28
+342.41,287.17 346.99,289.98 351.57,292.72 356.15,295.39 360.73,297.99 365.31,300.51 369.89,302.98 374.46,305.37 379.04,307.70 383.62,309.97 388.20,312.19 392.78,314.34 397.36,316.43 401.94,318.47 406.51,320.46 411.09,322.39
+415.67,324.28 420.25,326.11 424.83,327.89 429.41,329.63 433.99,331.32 438.57,332.97 443.14,334.57 447.72,336.13 452.30,337.65 456.88,339.13 461.46,340.57 466.04,341.97 470.62,343.34 475.19,344.67 479.77,345.96 484.35,347.22
+488.93,348.45 493.51,349.64 498.09,350.80 502.67,351.93 507.25,353.03 511.82,354.11 516.40,355.15 520.98,356.17 525.56,357.16 530.14,358.12 534.72,359.06 539.30,359.97 543.88,360.86 548.45,361.73 553.03,362.57 557.61,363.39
+562.19,364.19 '/>
+	</g>
+</g>
+	</g>
+	<g id="gnuplot_plot_2" ><title>Data from Rutherford and Soddy</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(460.49,86.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
 		<text><tspan font-family="Times New Roman" >Data from Rutherford and Soddy</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(148,   0, 211)'  d='M473.09,54.01 L536.99,54.01 M473.09,47.26 L473.09,60.76 M536.99,47.26 L536.99,60.76 M139.12,51.45 L139.12,27.01
+	<path stroke='rgb(  0, 158, 115)'  d='M473.09,81.01 L536.99,81.01 M473.09,74.26 L473.09,87.76 M536.99,74.26 L536.99,87.76 M139.12,51.45 L139.12,27.01
 		M132.37,51.45 L145.87,51.45 M169.34,103.38 L169.34,72.83 M162.59,103.38 L176.09,103.38 M162.59,72.83 L176.09,72.83
 		M199.56,140.04 L199.56,109.49 M192.81,140.04 L206.31,140.04 M192.81,109.49 L206.31,109.49 M229.78,185.87 L229.78,161.43
 		M223.03,185.87 L236.53,185.87 M223.03,161.43 L236.53,161.43 M290.22,243.91 L290.22,219.47 M283.47,243.91 L296.97,243.91
@@ -148,26 +167,26 @@
 		M495.00,353.28 L508.50,353.28 M495.00,341.06 L508.50,341.06 M562.19,365.80 L562.19,353.58 M555.44,365.80 L562.19,365.80
 		M555.44,353.58 L562.19,353.58  '/></g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<use xlink:href='#gpPt0' transform='translate(139.12,36.17) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(169.34,88.11) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(199.56,124.77) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(229.78,173.65) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(290.22,231.69) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(380.87,303.48) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(411.09,316.62) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(501.75,347.17) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(562.19,359.69) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(505.04,54.01) scale(6.75)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt1' transform='translate(139.12,36.17) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(169.34,88.11) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(199.56,124.77) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(229.78,173.65) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(290.22,231.69) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(380.87,303.48) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(411.09,316.62) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(501.75,347.17) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(562.19,359.69) scale(6.75)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt1' transform='translate(505.04,81.01) scale(6.75)' color='rgb(  0, 158, 115)'/>
 </g>
 	</g>
-	<g id="gnuplot_plot_2" ><title>Best fit</title>
+	<g id="gnuplot_plot_3" ><title>Best fit</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(460.49,86.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
+	<g transform="translate(460.49,113.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
 		<text><tspan font-family="Times New Roman" >Best fit</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(  0, 158, 115)' stroke-dasharray='2.5,4.0'  d='M473.09,81.01 L536.99,81.01 M138.02,27.01 L140.95,33.02 L145.53,42.18 L150.11,51.11 L154.69,59.81 L159.27,68.30
+	<path stroke='rgb( 86, 180, 233)' stroke-dasharray='2.5,4.0'  d='M473.09,108.01 L536.99,108.01 M138.02,27.01 L140.95,33.02 L145.53,42.18 L150.11,51.11 L154.69,59.81 L159.27,68.30
 		L163.84,76.56 L168.42,84.62 L173.00,92.47 L177.58,100.12 L182.16,107.58 L186.74,114.85 L191.32,121.93 L195.90,128.84
 		L200.47,135.56 L205.05,142.12 L209.63,148.51 L214.21,154.74 L218.79,160.81 L223.37,166.73 L227.95,172.49 L232.52,178.11
 		L237.10,183.59 L241.68,188.92 L246.26,194.12 L250.84,199.19 L255.42,204.13 L260.00,208.95 L264.58,213.64 L269.15,218.21
@@ -181,7 +200,7 @@
 		L530.14,353.16 L534.72,354.19 L539.30,355.19 L543.88,356.17 L548.45,357.12 L553.03,358.04 L557.61,358.95 L562.19,359.83
 		 '/></g>
 	</g>
-<g fill="none" color="white" stroke="rgb(  0, 158, 115)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="white" stroke="rgb( 86, 180, 233)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>

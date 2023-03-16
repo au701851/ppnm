@@ -2,7 +2,7 @@ using System;
 using static System.Math;
 using static System.Console;
 public partial class lineq{
-public static vector lsfit(Func<double, double>[] fs, vector x, vector y, vector dy){
+public static (vector, matrix) lsfit(Func<double, double>[] fs, vector x, vector y, vector dy){
 if(x.size != y.size || y.size != dy.size)
 	throw new ArgumentException("vectors x, y and dy must be of the same size");
 
@@ -19,6 +19,12 @@ for(int i = 0; i<y.size; i++)
 //Now my situation has become an ordinary least square problem, which I solve by solving Rc = Q^Ty
 matrix R = new matrix(A.size2, A.size2);
 QRGSdecomp(ref A, ref R);
-return QRGSsolve(A, R, y);
+vector c = QRGSsolve(A, R, y); //solution
+
+//Co-variance matrix:
+matrix Cov = matrix.id(R.size1);
+matrix R_inv = QRGSinverse(Cov, R);
+Cov = R_inv*R_inv.T;
+return (c, Cov);
 }
 }

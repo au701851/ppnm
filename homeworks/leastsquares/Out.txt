@@ -1,3 +1,8 @@
-The vector with the best fit vaues of a and lambda is:
-      4.95      -0.17 
-... which yields a half-life of 4.08004641904341 -- today we know the value to be 3.5
+
+   0.00115  -0.000178 
+ -0.000178   4.83e-05 
+The best fit vaues and their uncertainties are is:
+a: 4.9511553496486 +- 0.0339477544244211
+l: -0.169887082001008 +- 0.00695008119420513
+... which yields a half-life of 4.08004641904341 +- 0.166914715082983 -- today we know the value to be 3.5, which does not lie within the estimated uncertainty.
+Here, the error in the half life has been determined by error propation: d(1/c) = 1/c^2 dc

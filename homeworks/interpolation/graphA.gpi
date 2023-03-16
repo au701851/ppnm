@@ -1,0 +1,23 @@
+set terminal svg font "Times New Roman, 18"
+set output "Linear_interpolation.svg"
+set fit logfile "fit.log"
+set fit quiet
+#Setting fit quiet stops it from printing its log on screen
+
+set xlabel "x"
+set ylabel "y"
+
+set key left
+
+f(x) = a*cos(x)
+
+fit f(x) 'spline_values_sine.data' using ($1):($3) via a
+
+plot [-4:4][-1.2:2]\
+	"tab_values_sine.data" with points pt 7 ps 0.3 lc rgb "blue" \
+	title "Tabulated values, sin(x)",\
+	"spline_values_sine.data" using ($1):($2) with points pt 7 ps 0.3 lc rgb "red" \
+	title "Interpolated values", \
+	"spline_values_sine.data" using ($1):($3) with points pt 7 ps 0.3 lc rgb "green" \
+	title "Interpolated integral", \
+	f(x) title "Fit of integral to cosine"

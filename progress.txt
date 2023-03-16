@@ -1,3 +1,22 @@
+HOMEWORKS
+ ======================================
+| #  | homework      | A | B | C | Σ   |
+ ======================================
+| 1  | LinEq         | 6 | 3 | 1 | 10  |
+ ---------------------------------------
+| 2  | EVD           | 6 | - | - |  6  |
+ ---------------------------------------
+| 3  | LeastSquares  | 6 | 3 | 1 |  10 |
+ ---------------------------------------
+| 4  | Interpolation | 6 | 3 | - |   9 |
+ ---------------------------------------
+|              ...                     |
+ ======================================
+|                    total points: 25  |
+ ======================================
+
+
+
 Done exercises:
 hello
 multiprocessing
@@ -7,11 +26,6 @@ generic_list
 plots
 vec
 input_output
-
-Done homework:
-linear equations (part a, b and c)
-eigenvalues (part a, part b except plotting the eigenfunctions)
-least squares (part a)
 
 To-do:
 Check results of complex
