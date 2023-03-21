@@ -1,6 +1,4 @@
 Part a
-safe
-safe
 I have collected tabulated values of sin(x) in a file, and sent these values to my linterp object. I have the collected interpolated values, and integrals.
 Since I expect my integral of the sine function to be cos(x)-cos(x[0]), where x[0] is the first number in my array, I have done my calculations on an inteval [-3/4pi, 3/4pi], so my plots are prettier... :)
 The graph showing my work on part a is Linear_interpolation.svg
@@ -10,21 +8,24 @@ Part b
 I test my quad spline program, by writing out manually calculated results for each spline, along with my programs result:
 For y = x^2, I expect the spline to satisfy s(x)=a(x-xi)^2 + b(x-xi) + c = y(x) = x^2, which is satisfied if a=1, b=2xi and c = xi^2. Lets check the results:
 as			bs			cs				
-1 (should be 1)		2 (should be 2)		1 (should be 1)
-1 (should be 1)		4 (should be 4)		4 (should be 4)
-1 (should be 1)		6 (should be 6)		9 (should be 9)
-1 (should be 1)		8 (should be 8)		16 (should be 16)
+1 (should be 1)		2 (should be -9.42477796076938)		1 (should be 22.2066099024511)
+1 (should be 1)		4 (should be -8.92477796076938)		4 (should be 19.9129154122587)
+1 (should be 1)		6 (should be -8.42477796076938)		9 (should be 17.7442209220664)
+1 (should be 1)		8 (should be -7.92477796076938)		16 (should be 15.700526431874)
 
 For y=x, one would expect the spline to be s(x)=a(x-xi)^2+b(x-xi)+c = y(x) = x, which is satisfied if a = 0, b = 1 and c = xi.
-0 (should be 0)		1 (should be 1)		1 (should be 1)
-0 (should be 0)		1 (should be 1)		2 (should be 2)
-0 (should be 0)		1 (should be 1)		3 (should be 3)
-0 (should be 0)		1 (should be 1)		4 (should be 4)
+0 (should be 0)		1 (should be 1)		1 (should be -4.71238898038469)
+0 (should be 0)		1 (should be 1)		2 (should be -4.46238898038469)
+0 (should be 0)		1 (should be 1)		3 (should be -4.21238898038469)
+0 (should be 0)		1 (should be 1)		4 (should be -3.96238898038469)
 
 For y=1, one would expect the spline to be s(x)=a(x-xi)^2+b(x-xi)+c = y(x) = 1, which is satisfied if a = 0, b = 0 and c = 1.
 0 (should be 0)		0 (should be 0)		1 (should be 1)
 0 (should be 0)		0 (should be 0)		1 (should be 1)
 0 (should be 0)		0 (should be 0)		1 (should be 1)
 0 (should be 0)		0 (should be 0)		1 (should be 1)
+
+Furthermore, to test my quadratic spline, I have made a plot similar to the one from part a, using the tabulated values of sine
+These calculated values are saved in qspline_values_sine.data and plotted in Q_interpolation.svg
 
 =================================

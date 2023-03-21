@@ -1,0 +1,30 @@
+set terminal svg font "Times New Roman, 18"
+set output "Q_interpolation.svg"
+set fit logfile "fit.log"
+set fit quiet
+#Setting fit quiet stops it from printing its log on screen
+
+set xlabel "x"
+set ylabel "y"
+set title "Quadratic spline"
+
+set key top right
+set key font ",12"
+
+f(x) = a*cos(x)
+g(x) = b*cos(x)
+
+fit f(x) 'qspline_values_sine.data' using ($1):($3) via a
+fit g(x) 'qspline_values_sine.data' using ($1):($4) via b
+
+plot [-4:4][-1.2:3]\
+	"tab_values_sine.data" with points pt 7 ps 0.3 lc rgb "blue" \
+	title "Tabulated values, sin(x)",\
+	"qspline_values_sine.data" using ($1):($2) with points pt 7 ps 0.3 lc rgb "red" \
+	title "Interpolated values", \
+	"qspline_values_sine.data" using ($1):($3) with points pt 7 ps 0.3 lc rgb "green" \
+	title "Interpolated integral", \
+	f(x) title "Fit of integral to cosine", \
+	"qspline_values_sine.data" using ($1):($4) with points pt 7 ps 0.3 lc rgb "purple" \
+	title "Interpolated derivative", \
+	g(x) title "Fit of derivative to cosine"

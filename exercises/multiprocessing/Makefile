@@ -13,3 +13,6 @@ main.exe: main.cs
 
 parallel.exe: parallel.cs
 	mcs $<
+
+clean:
+	rm -f *.exe *.txt

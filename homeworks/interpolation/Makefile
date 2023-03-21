@@ -4,9 +4,11 @@ MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = $(HOME)/repos/ppnm/math_resources
 
-all: Out.txt Linear_interpolation.svg
+all: Out.txt Linear_interpolation.svg Q_interpolation.svg
 
 Linear_interpolation.svg: graphA.gpi Out.txt tab_values_sine.data spline_values_sine.data
+	gnuplot $<
+Q_interpolation.svg: graphB.gpi Out.txt tab_values_sine.data qspline_values_sine.data
 	gnuplot $<
 
 Out.txt: main.exe

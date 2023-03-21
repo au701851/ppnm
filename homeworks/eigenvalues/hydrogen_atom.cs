@@ -84,19 +84,19 @@ public static double find_lowest_energy(double rmax, double dr){
 		WriteLine($"I expect f to be given by r*psi100, and can as such write out the expected values of f. These are in the data files 'first eigenvector' and 'second eigenvector', and are plotted in 'Lowest eigenvectors'.");
 		WriteLine($"I found these values to be off from their expected values, and realised that it had something to do with the normalisation:");
 		WriteLine($"first eigenvector square norm: {V[0].norm()}, Second eigenvector square norm: {V[1].norm()}");
-		WriteLine($"That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state.");
+		WriteLine($"That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state. I have used this factor to normalise the expected values.");
 		
 
 		var outfile = new System.IO.StreamWriter("first_eigenvector.data");
 		var outfile2 = new System.IO.StreamWriter("second_eigenvector.data");
 		outfile.WriteLine($"Delta r		Exact result		Numerical result");
 		outfile2.WriteLine($"Delta r		Exact result		Numerical result");
-		double exp_fi = 0;
+		double theo_fi = 0;
 		for(int i = 0; i < V.size1; i++){
-			exp_fi = r[i]*1.0/Sqrt(PI)*Exp(-r[i]);
-			outfile.WriteLine($"{r[i]}	{exp_fi}	{V[i, 0]}");
-			exp_fi = r[i]*1.0/Sqrt(8.0*PI)*(1.0 - 1.0/2.0*r[i])*Exp(-r[i]/2);
-			outfile2.WriteLine($"{r[i]}	{exp_fi}	{V[i, 1]}");
+			theo_fi = r[i]*1.0/Sqrt(PI)*Exp(-r[i]);
+			outfile.WriteLine($"{r[i]}	{theo_fi}	{V[i, 0]}");
+			theo_fi = r[i]*1.0/Sqrt(8.0*PI)*(1.0 - 1.0/2.0*r[i])*Exp(-r[i]/2);
+			outfile2.WriteLine($"{r[i]}	{theo_fi}	{V[i, 1]}");
 			}
 		outfile.Close();
 		outfile2.Close();

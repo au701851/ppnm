@@ -139,48 +139,20 @@
 </g>
 	<g id="gnuplot_plot_1" ><title>Varying dr with rmax = 6</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(460.49,59.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
-		<text><tspan font-family="Times New Roman" >Varying dr with r</tspan><tspan font-family="Times New Roman"  font-size="14.4" dy="5.40px">max</tspan><tspan font-family="Times New Roman"  font-size="18.0" dy="-5.40px"> = 6</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<use xlink:href='#gpPt0' transform='translate(350.65,286.97) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(380.87,280.46) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(290.22,298.93) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(260.00,304.09) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(320.44,292.86) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(229.78,308.66) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(199.56,312.47) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(169.34,315.34) scale(6.75)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt0' transform='translate(505.04,54.01) scale(6.75)' color='rgb(148,   0, 211)'/>
 </g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>Varying rmax with dr = 0.3</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(460.49,86.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
-		<text><tspan font-family="Times New Roman" >Varying r</tspan><tspan font-family="Times New Roman"  font-size="14.4" dy="5.40px">max</tspan><tspan font-family="Times New Roman"  font-size="18.0" dy="-5.40px"> with dr = 0.3</tspan></text>
-	</g>
-</g>
-<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<use xlink:href='#gpPt1' transform='translate(169.34,53.75) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(199.56,274.54) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(229.78,302.82) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(260.00,310.27) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(290.22,312.47) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(320.44,312.77) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(350.65,312.84) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(380.87,312.86) scale(6.75)' color='rgb(  0, 158, 115)'/>
-	<use xlink:href='#gpPt1' transform='translate(505.04,81.01) scale(6.75)' color='rgb(  0, 158, 115)'/>
 </g>
 	</g>
 	<g id="gnuplot_plot_3" ><title>Expected value</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(460.49,113.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
+	<g transform="translate(460.49,59.86)" stroke="none" fill="black" font-family="Times New Roman" font-size="18.00"  text-anchor="end">
 		<text><tspan font-family="Times New Roman" >Expected value</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb( 86, 180, 233)' stroke-dasharray='2.5,4.0'  d='M473.09,108.01 L536.99,108.01 M108.90,318.09 L113.48,318.09 L118.06,318.09 L122.64,318.09 L127.21,318.09 L131.79,318.09
+	<path stroke='rgb( 86, 180, 233)' stroke-dasharray='2.5,4.0'  d='M473.09,54.01 L536.99,54.01 M108.90,318.09 L113.48,318.09 L118.06,318.09 L122.64,318.09 L127.21,318.09 L131.79,318.09
 		L136.37,318.09 L140.95,318.09 L145.53,318.09 L150.11,318.09 L154.69,318.09 L159.27,318.09 L163.84,318.09 L168.42,318.09
 		L173.00,318.09 L177.58,318.09 L182.16,318.09 L186.74,318.09 L191.32,318.09 L195.90,318.09 L200.47,318.09 L205.05,318.09
 		L209.63,318.09 L214.21,318.09 L218.79,318.09 L223.37,318.09 L227.95,318.09 L232.52,318.09 L237.10,318.09 L241.68,318.09

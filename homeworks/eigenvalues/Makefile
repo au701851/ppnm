@@ -15,8 +15,7 @@ parta: main.exe
 	mono $< >> Out.txt
 
 partb: hydrogen_atom.exe varying_dr.data varying_rmax.data
-	echo B >> Out.txt &
-	mono $< -rmax:10.0 -dr:0.3 -test:true >> Out.txt
+	echo B >> Out.txt
 
 varying_dr.data: hydrogen_atom.exe
 	mono $< -rmax:$(RMAX) -dr:0.1 > $@  &

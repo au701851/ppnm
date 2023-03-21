@@ -71,47 +71,8 @@ E_0/E_48 = -0.0099501500513522 (should be 50)
 I expect f to be given by r*psi100, and can as such write out the expected values of f. These are in the data files 'first eigenvector' and 'second eigenvector', and are plotted in 'Lowest eigenvectors'.
 I found these values to be off from their expected values, and realised that it had something to do with the normalisation:
 first eigenvector square norm: 1, Second eigenvector square norm: 1
-That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state.
+That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state. I have used this factor to normalise the expected values.
 
 
 Varying dr from 0.05 to 0.3 and rmax from 1 to 20, I have collected som data in varying_dr.txt and varying_rmax.txt
 B
-Calculated lowest energy: -0.489228337557276 
-(Should be -(E_h)/2 = -0.5 in units of E_h)
-E_0/E_0 = 1 (should be 2)
-E_0/E_1 = 4.40269398467648 (should be 3)
-E_0/E_2 = -5.08110426513516 (should be 0)
-E_0/E_3 = -1.1881438025837 (should be 1)
-E_0/E_4 = -0.589680798880496 (should be 6)
-E_0/E_5 = -0.364539009319773 (should be 7)
-E_0/E_6 = -0.251864134579115 (should be 4)
-E_0/E_7 = -0.18641916332318 (should be 5)
-E_0/E_8 = -0.144699311238331 (should be 10)
-E_0/E_9 = -0.116340858470754 (should be 11)
-E_0/E_10 = -0.0961347493025139 (should be 8)
-E_0/E_11 = -0.0812083388881213 (should be 9)
-E_0/E_12 = -0.069863423017278 (should be 14)
-E_0/E_13 = -0.061040166055146 (should be 15)
-E_0/E_14 = -0.0540476983735525 (should be 12)
-E_0/E_15 = -0.0484192657836517 (should be 13)
-E_0/E_16 = -0.0438299558233441 (should be 18)
-E_0/E_17 = -0.0400477912709248 (should be 19)
-E_0/E_18 = -0.0369035197861606 (should be 16)
-E_0/E_19 = -0.0342713283818387 (should be 17)
-E_0/E_20 = -0.0320561758939279 (should be 22)
-E_0/E_21 = -0.0301852616446041 (should be 23)
-E_0/E_22 = -0.0286021503573987 (should be 20)
-E_0/E_23 = -0.0272626432098852 (should be 21)
-E_0/E_24 = -0.026131818729201 (should be 26)
-E_0/E_25 = -0.0251818669744348 (should be 27)
-E_0/E_26 = -0.0243904603237839 (should be 24)
-E_0/E_27 = -0.0237394726238271 (should be 25)
-E_0/E_28 = -0.0232138881485381 (should be 30)
-E_0/E_29 = -0.02280073169562 (should be 31)
-E_0/E_30 = -0.0224877631430498 (should be 28)
-E_0/E_31 = -0.0222611100771383 (should be 29)
-I expect f to be given by r*psi100, and can as such write out the expected values of f. These are in the data files 'first eigenvector' and 'second eigenvector', and are plotted in 'Lowest eigenvectors'.
-I found these values to be off from their expected values, and realised that it had something to do with the normalisation:
-first eigenvector square norm: 1, Second eigenvector square norm: 1
-That means the found eigen vectors are normalised, whereas the square norm of the expected values should be <r^2> for the given state.
-10 0.3 -0.489228337557276

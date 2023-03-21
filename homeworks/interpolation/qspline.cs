@@ -23,15 +23,17 @@ public class spline{
 
 	public double evaluate(double z){
 		if(mode == "l") return linterpevaluate(z);
+		else if(mode == "q") return qinterpevaluate(z);
 		else throw new Exception("Choose a mode");
 	}
 	public double integral(double z){
 		if(mode == "l") return linterpInteg(z);
+		else if(mode == "q") return qinterpInteg(z);
 		else throw new Exception("Choose a mode");
 	}
 	public double derivative(double z){
 		if(mode == "l") throw new Exception("You're in linear interpolation mode, where the derivative is not continuos.");
-		
+		else if(mode == "q") return qinterpderivative(z);
 		else throw new Exception("Choose a mode");
 	}
 
@@ -70,6 +72,26 @@ public class spline{
 		//the quadratic spline is y(x) = y[i] + b[i]*(x-x[i]) + c[i]*(x-x[i])^2...
 		return y[i] + b[i]*(z-x[i]) + c[i]*Pow((z-x[i]),2);
 	}	
+	
+	public double qinterpInteg(double z){
+		int j = binsearch(x, z);
+		
+		double integ = 0;
+		double dx;
+		for(int i = 0; i<j; i++){
+			dx = x[i+1]-x[i];
+			//The integral from xi to xi+1 is a/3dx^3 + b/2dx^2 + cdx
+			integ += a[i]/3*Pow(dx, 3) + b[i]/2*dx*dx + c[i]*dx;
+		}
+		dx = z-x[j];
+		integ += a[j]/3*Pow(dx, 3) + b[j]/2*dx*dx + c[j]*dx;
+		return integ;		
+	}
+
+	public double qinterpderivative(double z){
+		int j = binsearch(x, z);
+		return 2*a[j]*(z-x[j]) + b[j];
+	}
 	
 
 	public void linterp(){
