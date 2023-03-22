@@ -1,0 +1,11 @@
+Part a
+To test my function, I try to solve U'' = -U, by defining vec(y) = (y1, y2) where y1 = U and y2 = y1', so that I can solve y1' = y2 and y2' = -y1, as two coupled ODEs
+I calculate a solution to U'' = -U with initial conditions y0 = (0, 1), expecting a sine-function for the answer.
+
+I similarly attempt to calculate U'' = U, with initial conditions y0 = (1, -1), expecting the solution f(x) = exp(-x)
+
+The solutions are plotted in GraphA.svg
+
+I also attempt to recreate the result of the pendulum with friction from the scipy manual
+Here vec(y) = (theta, omega), where theta'=omega and omega' = -b*omega - c*sin(theta) with b =0.25 and c = 5.0 in our problem.
+The plot is recreated with values determined by my runge-kutta function in Pendulum.svg
