@@ -2,7 +2,7 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
-DIR = $(HOME)/repos/ppnm/math_resources
+DIR = ../../math_resources
 
 all: Out.txt Linear_interpolation.svg Q_interpolation.svg
 

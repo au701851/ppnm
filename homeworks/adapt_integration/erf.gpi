@@ -1,0 +1,16 @@
+set terminal svg
+
+set key bottom 
+#moving the legend
+
+set xlabel "x"
+set ylabel "erf(x)"
+set tics out
+set title "Error function"
+set output "Erf.svg"
+plot [0:3] \
+	"../../exercises/plots/tab_error.txt" with points title "Tabulated values", \
+	"erf.txt" with lines linetype 5 title "Error function with adaptive integration"
+	#You can determine the type of points by writing "with points pt "#"". Look up a table
+	#Linetype changes the color
+	# You can also determine linewidth

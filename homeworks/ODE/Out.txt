@@ -9,3 +9,11 @@ The solutions are plotted in GraphA.svg
 I also attempt to recreate the result of the pendulum with friction from the scipy manual
 Here vec(y) = (theta, omega), where theta'=omega and omega' = -b*omega - c*sin(theta) with b =0.25 and c = 5.0 in our problem.
 The plot is recreated with values determined by my runge-kutta function in Pendulum.svg
+I have implemented the changes in my routine, so I can evaluate only the end vector, thus saving time.
+I have also changed the step acceptence condition to compare the toleranse and the error componentwise rather than by norm
+Now I have come to the part, where I must recreate the plot of the Lotka-Volterra system.
+I must solve the system of coupled diff equations:
+dx/dt = ax - bxy
+dy/dt = dxy - cy
+with boundary conditions x(0) = 10, y(0) = 5.
+I write the coupled diff eq as a Function, and solve it with my routine. The result is plotted in LotkaVolterra.svg

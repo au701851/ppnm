@@ -2,7 +2,7 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
-DIR = $(HOME)/repos/ppnm/math_resources
+DIR = ../../math_resources
 
 all: GraphA.svg Pendulum.svg
 
@@ -10,6 +10,9 @@ GraphA.svg: graphA.gpi Out.txt diffeq1.data
 	gnuplot $<
 
 Pendulum.svg: pendulum.gpi Out.txt diffeq3.data
+	gnuplot $<
+
+LotkaVolterra.svg: lotkavolterra.gpi Out.txt diffeq4.data
 	gnuplot $<
 
 Out.txt: main.exe

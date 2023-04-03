@@ -1,0 +1,19 @@
+set terminal svg font "sans, 18" background "black"
+set output "LotkaVolterra.svg"
+
+set key top left tc "white"
+
+##############################################################################
+
+set border lc "white"
+set xlabel "t" tc "white"
+set xtics ("0.0" 0.0, 2.5,"5.0" 5.0, 7.5,"10.0" 10.0, 12.5, "15.0" 15.0) tc "white" border nomirror out
+set ytics border nomirror out (0, 2, 4, 6, 8, 10, 12) tc "white"
+set title "Lotka-Volterra System" tc "white"
+
+plot [-1:16][-0.5:13]\
+	"diffeq4.data" using ($1):($2) with lines lt 20 lw 3 \
+	title "x", \
+	"diffeq4.data" using ($1):($3) with lines lt 3 lw 3 \
+	title "y"
+

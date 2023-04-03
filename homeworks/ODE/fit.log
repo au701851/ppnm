@@ -1855,3 +1855,251 @@ correlation matrix of the fit parameters:
                 A      k      
 A               1.000 
 k               0.712  1.000 
+
+
+*******************************************************************************
+Thu Mar 23 17:51:03 2023
+
+
+FIT:    data read from "diffeq1.data" using ($1):($2)
+        format = x:z
+        #datapoints = 182
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*sin(x)
+fitted parameters initialized with current variable values
+
+   2 5.1789111567e-05  -3.72e-02  7.04e-03    9.999155e-01
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 5.17891e-05
+rel. change during last iteration : -3.71736e-07
+
+degrees of freedom    (FIT_NDF)                        : 181
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000534909
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.86128e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.999915         +/- 5.632e-05    (0.005632%)
+
+
+*******************************************************************************
+Thu Mar 23 17:51:03 2023
+
+
+FIT:    data read from "diffeq2.data" using ($1):($2)
+        format = x:z
+        #datapoints = 62
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x) = A*exp(-k*x)
+fitted parameters initialized with current variable values
+
+   3 5.2336846290e-07  -1.18e-03  3.78e-04    9.999292e-01   9.995527e-01
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 5.23368e-07
+rel. change during last iteration : -1.18249e-08
+
+degrees of freedom    (FIT_NDF)                        : 60
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 9.3396e-05
+variance of residuals (reduced chisquare) = WSSR/ndf   : 8.72281e-09
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.999929         +/- 3.626e-05    (0.003627%)
+k               = 0.999553         +/- 6.466e-05    (0.006469%)
+
+correlation matrix of the fit parameters:
+                A      k      
+A               1.000 
+k               0.712  1.000 
+
+
+*******************************************************************************
+Thu Mar 23 18:19:03 2023
+
+
+FIT:    data read from "diffeq1.data" using ($1):($2)
+        format = x:z
+        #datapoints = 172
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*sin(x)
+fitted parameters initialized with current variable values
+
+   2 6.2415219857e-05  -4.06e-02  6.99e-03    9.999050e-01
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 6.24152e-05
+rel. change during last iteration : -4.05536e-07
+
+degrees of freedom    (FIT_NDF)                        : 171
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000604153
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.65001e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.999905         +/- 6.593e-05    (0.006593%)
+
+
+*******************************************************************************
+Thu Mar 23 18:19:03 2023
+
+
+FIT:    data read from "diffeq2.data" using ($1):($2)
+        format = x:z
+        #datapoints = 55
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x) = A*exp(-k*x)
+fitted parameters initialized with current variable values
+
+   3 9.8436882264e-07  -2.48e-03  4.01e-04    9.999042e-01   9.993865e-01
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 9.84369e-07
+rel. change during last iteration : -2.48124e-08
+
+degrees of freedom    (FIT_NDF)                        : 53
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000136283
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.8573e-08
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.999904         +/- 4.748e-05    (0.004748%)
+k               = 0.999386         +/- 9.611e-05    (0.009617%)
+
+correlation matrix of the fit parameters:
+                A      k      
+A               1.000 
+k               0.650  1.000 
+
+
+*******************************************************************************
+Thu Mar 23 18:36:23 2023
+
+
+FIT:    data read from "diffeq1.data" using ($1):($2)
+        format = x:z
+        #datapoints = 172
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*sin(x)
+fitted parameters initialized with current variable values
+
+   2 6.2415219857e-05  -4.06e-02  6.99e-03    9.999050e-01
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 6.24152e-05
+rel. change during last iteration : -4.05536e-07
+
+degrees of freedom    (FIT_NDF)                        : 171
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000604153
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.65001e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.999905         +/- 6.593e-05    (0.006593%)
+
+
+*******************************************************************************
+Thu Mar 23 18:36:23 2023
+
+
+FIT:    data read from "diffeq2.data" using ($1):($2)
+        format = x:z
+        #datapoints = 55
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x) = A*exp(-k*x)
+fitted parameters initialized with current variable values
+
+   3 9.8436882264e-07  -2.48e-03  4.01e-04    9.999042e-01   9.993865e-01
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 9.84369e-07
+rel. change during last iteration : -2.48124e-08
+
+degrees of freedom    (FIT_NDF)                        : 53
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000136283
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.8573e-08
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.999904         +/- 4.748e-05    (0.004748%)
+k               = 0.999386         +/- 9.611e-05    (0.009617%)
+
+correlation matrix of the fit parameters:
+                A      k      
+A               1.000 
+k               0.650  1.000 
+
+
+*******************************************************************************
+Wed Mar 29 08:19:52 2023
+
+
+FIT:    data read from "diffeq1.data" using ($1):($2)
+        format = x:z
+        #datapoints = 172
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*sin(x)
+fitted parameters initialized with current variable values
+
+   2 6.2415219857e-05  -4.06e-02  6.99e-03    9.999050e-01
+
+After 2 iterations the fit converged.
+final sum of squares of residuals : 6.24152e-05
+rel. change during last iteration : -4.05536e-07
+
+degrees of freedom    (FIT_NDF)                        : 171
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000604153
+variance of residuals (reduced chisquare) = WSSR/ndf   : 3.65001e-07
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 0.999905         +/- 6.593e-05    (0.006593%)
+
+
+*******************************************************************************
+Wed Mar 29 08:19:52 2023
+
+
+FIT:    data read from "diffeq2.data" using ($1):($2)
+        format = x:z
+        #datapoints = 55
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x) = A*exp(-k*x)
+fitted parameters initialized with current variable values
+
+   3 9.8436882264e-07  -2.48e-03  4.01e-04    9.999042e-01   9.993865e-01
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 9.84369e-07
+rel. change during last iteration : -2.48124e-08
+
+degrees of freedom    (FIT_NDF)                        : 53
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000136283
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.8573e-08
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+A               = 0.999904         +/- 4.748e-05    (0.004748%)
+k               = 0.999386         +/- 9.611e-05    (0.009617%)
+
+correlation matrix of the fit parameters:
+                A      k      
+A               1.000 
+k               0.650  1.000 
