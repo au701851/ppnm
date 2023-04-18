@@ -1,0 +1,19 @@
+set terminal svg font "sans, 18" background "black"
+
+set key top left tc "white"
+
+DATA = "rsspoints.data"
+
+##############################################################################
+
+set border lc "white"
+set xlabel "x" tc "white"
+set ylabel "y" tc "white"
+set xtics tc "white" border nomirror out
+set ytics border nomirror out tc "white"
+set title "f(x,y) = 1, if x^2 + y^2 < 0.8" tc "white"
+
+plot [-0.1:1.1][-0.1:1.1]\
+	DATA using ($1):($2) with points pt 0 \
+	title "Stratified sampling"
+

@@ -1,0 +1,18 @@
+======================================================
+======================PART A==========================
+For part a I had to create a rootfinder built on Newton's method.
+I used the approximation for the derivative given in the BOOK eq. (7)
+I begin by testing it on the simple function y = x + 1, expecting to find the root at x = -1. I pass x = -3 as my starting guess.
+Testing f(x) = x + 1 with initial guess -3 ... PASSED
+Testing f(x,y) = (-x**2 + 4, y-x) with initial guess (-3, -3) ...
+Result:        -2         -2 
+... and with initial guess (3,3)
+Result:         2          2 
+I see that my routine can find either of the zeroes, depending on where it starts looking.
+
+Let's test the Rosenbrock valley function
+To find extrema, I have to locate the zeroes of the gradient, which (I have calculated) is given by:
+(df/dx, df/dy) = (2x-2 - 400(y-x**2)*x, 200(y-x**2)
+Conferring with Wikipedia, I expect the zero to be at (1,1). I begin my search at the origin, and through my routine I obtain:
+(x,y) =          1          1 
+======================================================
