@@ -6,10 +6,15 @@ MKSVG = gnuplot $(filter %.gpi, $^)
 DIR = ../../math_resources
 
 
-All: Out.txt
+All: GraphB1.svg GraphB2.svg
 
-Out.txt: main.exe
-	mono $< 1>Out.txt -fileB1:hydrogen.data
+Out.txt hydrogen.data: main.exe
+	mono $< 1>Out.txt -fileB1:hydrogen.data -fileB2:convergence.data
+
+GraphB1.svg: graphB.gpi hydrogen.data
+	$(MKSVG) >$@
+GraphB2.svg: graphB2.gpi convergence.data
+	$(MKSVG) >$@
 
 main.exe: main.cs matrix.dll roots.dll rungekutta.dll genlist.dll
 	$(MKEXE) 

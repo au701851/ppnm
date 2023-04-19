@@ -16,3 +16,15 @@ To find extrema, I have to locate the zeroes of the gradient, which (I have calc
 Conferring with Wikipedia, I expect the zero to be at (1,1). I begin my search at the origin, and through my routine I obtain:
 (x,y) =          1          1 
 ======================================================
+======================PART B==========================
+For part B, I used my rootfinder in combination with my ODE-solver to find a solution to the Schrodinger equation which satisfied f(r -> oo) -> 0, by optimising E
+I defined a function which took an energy E, solved the ODE with initial condition f(rmin) = rmin-rmin**2, and returned f(rmax)
+Then I passed this function to my newton-rootfinder, and found the E, which made f(rmax) = 0:
+E0 =       -0.5 
+causing f(rmax) =   3.99e-05 
+
+I recorded the path, and plotted it in GraphB1.svg, comparing to the expected solution.
+
+Afterwords, I examined the influence off different parameters on the convergence of E0
+I have plotted the result of this exercise in GraphB2.svg
+======================================================

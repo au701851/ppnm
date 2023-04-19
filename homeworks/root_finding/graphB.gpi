@@ -1,0 +1,25 @@
+set terminal svg font "Times New Roman, 18" background "black"
+
+FILE = "hydrogen.data"
+
+W = 'tc "white"'
+
+set xlabel "r" @W
+set ylabel "{\psi(r)}" @W
+
+set xtics @W
+set ytics @W
+
+set key bottom right @W
+set key font ",14"
+
+set border lc 'white'
+
+f1(x) = x*exp(-x)
+
+plot [0:10][-0.1:0.5]\
+	FILE using ($1):($2) with points pt 7 ps 0.3 lc rgb "gold" \
+	title "First eigenvector, calculated values",\
+	f1(x) with lines dt 1  lc rgb "orchid"\
+	title "First eigenvector, expected values"
+

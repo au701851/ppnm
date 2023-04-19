@@ -22,7 +22,7 @@ public static void Main(string[] args){
 	WriteLine("----------------------------------------------------");
 	WriteLine("--------------------Part B--------------------------");
 	partB();
-	//comparison(fileB1);
+	comparison(fileB1);
 	WriteLine("----------------------------------------------------");
 	WriteLine("--------------------Part C--------------------------");
 	partC();
@@ -73,7 +73,7 @@ public static void partB(){
 public static void comparison(string file){
 	var outfile = new System.IO.StreamWriter(file);
 	outfile.WriteLine("N	plain_result	plain_err	quasi_result	quasi_err");
-	for(int i = 10; i<100000000; i*=10){
+	for(int i = 10; i<10000; i+=200){
 		var resultplain = montecarlo.plainmc((a) => (16*a[0]*Cos(a[1])*a[0]*a[0]*Sin(a[1])), new vector(0,0,0), new vector(1, PI/2.0, 2.0*PI), i);
 		var resultquasi = montecarlo.quasimc((a) => (16*a[0]*Cos(a[1])*a[0]*a[0]*Sin(a[1])), new vector(0,0,0), new vector(1, PI/2.0, 2.0*PI), i);
 		outfile.WriteLine($"{i}	{resultplain.Item1}	{resultplain.Item2}	{resultquasi.Item1}	{resultquasi.Item2}");
@@ -81,6 +81,7 @@ public static void comparison(string file){
 	outfile.Close();
 
 }
+
 
 
 public static void partC(){
