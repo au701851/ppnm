@@ -1,0 +1,22 @@
+set terminal svg font "sans, 18" background "black"
+
+set key top left tc "white"
+
+FILEA = "fileB.txt"
+FILEB = "higgs.data"
+
+##############################################################################
+
+set border lc "white"
+set ylabel "\U+03C3" tc "white"
+set xlabel "E" tc "white"
+set xtics 100, 10, 200 tc "white" border nomirror out
+set ytics -3, 2, 10 border nomirror out tc "white"
+set title "Higgs boson" tc "white"
+
+plot [100:160][-3:10]\
+	FILEB every ::1 using ($1):($2):($3) with errorbars pt 7 ps 0.3 lc rgb "gold" \
+	title "data", \
+	FILEA every ::1 with lines dt 1  lc rgb "orchid" \
+	title "fit"
+

@@ -1,0 +1,31 @@
+============================================
+===================PART A===================
+For part a I had to implement a quasi newton method for minimization. I used a numerical gradient.
+
+Finding minimum of Rosenbrock's valley function...
+Result (should be (1,1)):          1          1 
+PASSED
+
+Finding minimum of Himmelblau's function...
+After seeing a plot of the function, I decide to place my start values at each corner of a 10x10 square centered on the origin, hoping it will find all of the minima.
+Acceptable result:      -3.78      -3.28 
+Acceptable result:      -3.78      -3.28 
+Acceptable result:          3          2 
+Acceptable result:       3.58      -1.85 
+... PASSED
+
+I note that not all minima of the Himmelblau function are found, despite the different starting points. 
+This is of course because the routine isn't very critical in accepting a step, requiring only that it's lower than the current position, and can as such take very long steps.
+Therefore the routine risks 'tunneling' through a 'hill' of the function, and missing a minimum
+============================================
+===================PART B===================
+For part B, I used my minimisation routine to minimise chi squared for a fit.
+Using this method, I optimised the parameters of the Breit-Wigner function to fit experimental data.
+The result is plotted in fileB.svg, and the results shortly sketched out below:
+
+Result is:       126       2.09       9.88 
+With 351 iterations and chi^2 = 26.8695117786785
+
+Thus, I have found the mass of the Higg's boson to be 125.972187567192 and the experimental width to be 2.08633602301427.
+This is, with an estimated error of +-1, in accordance with theoretical values.
+============================================
