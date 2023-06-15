@@ -18,6 +18,7 @@ I note that not all minima of the Himmelblau function are found, despite the dif
 This is of course because the routine isn't very critical in accepting a step, requiring only that it's lower than the current position, and can as such take very long steps.
 Therefore the routine risks 'tunneling' through a 'hill' of the function, and missing a minimum
 ============================================
+
 ===================PART B===================
 For part B, I used my minimisation routine to minimise chi squared for a fit.
 Using this method, I optimised the parameters of the Breit-Wigner function to fit experimental data.
@@ -28,4 +29,20 @@ With 351 iterations and chi^2 = 26.8695117786785
 
 Thus, I have found the mass of the Higg's boson to be 125.972187567192 and the experimental width to be 2.08633602301427.
 This is, with an estimated error of +-1, in accordance with theoretical values.
+============================================
+
+===================PART C===================
+For part C, I had to implement the downhill simplex method. I use it first to find the minimum of Rosenbrock's valley funtion:
+
+Finding minimum of Rosenbrock's valley function using downhill simplex...
+Result (should be (1,1)):          1          1 
+PASSED with 71 iterations.
+
+I use the exact same procedure as in part b, to minimise chi^2 for the Breit-Wagner fit to the measurements on the Higgs boson
+Result is:       126       2.09       9.89 
+With 168 iterations and chi^2 = 26.8695130100525
+
+Thus, I have found the mass of the Higg's boson to be 125.972145577536 and the experimental width to be 2.08866695597191.
+This is, with an estimated error of +-1, in accordance with theoretical values.
+This result occured after fewer iterations than my quasi newton routine, and also even despite poorer initial guesses!
 ============================================

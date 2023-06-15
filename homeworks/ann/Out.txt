@@ -1,0 +1,12 @@
+--------------------------------------
+----------------PART A----------------
+For part A, I had to construct a simple artificial neural network, that could interpolate a function
+GraphA.svg shows how succesful this function was by plotting interpolated values of the function Cos(5x-1)*Exp(-x*x) after one and five trainings.
+--------------------------------------
+--------------------------------------
+----------------PART B----------------
+For part B I modified my code to also return first and second derivative, and the antiderivative.
+To test my program, I first trained my network to approximate a simple function, f(x)=cos(x), so I could easily check if my code was correct.
+The result of my work is in GraphB.svg.
+My experience was that the first derivative was pretty well approximated, as long as you stayed clear of edges of the interval.
+--------------------------------------

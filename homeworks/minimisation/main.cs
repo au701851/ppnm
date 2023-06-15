@@ -17,8 +17,13 @@ public static void Main(string[] args){
 	WriteLine("===================PART A===================");
 	partA();
 	WriteLine("============================================");
+	WriteLine();
 	WriteLine("===================PART B===================");
 	partB();
+	WriteLine("============================================");
+	WriteLine();
+	WriteLine("===================PART C===================");
+	partC();
 	WriteLine("============================================");
 }
 public static void partA(){
@@ -85,6 +90,34 @@ public static void partB(){
 		outfile.WriteLine($"{i}	{F(i, res[0], res[1], res[2])}");
 	outfile.Close();
 }
+public static void partC(){
+	WriteLine("For part C, I had to implement the downhill simplex method. I use it first to find the minimum of Rosenbrock's valley funtion:");
+
+	
+	WriteLine("\nFinding minimum of Rosenbrock's valley function using downhill simplex...");
+	vector[] simplex = {new vector(-2,2), new vector(2,-2), new vector(-2,-2)};
+	vector res = mini.simplex((vector a) => ((1-a[0])*(1-a[0])+100*Pow(a[1]-a[0]*a[0], 2)), simplex);
+	res.print("Result (should be (1,1)): ");
+	WriteLine($"{vector.approx(new vector(1,1), res, resACC) ? "PASSED" : "FAILED"} with {mini.counter} iterations.");
+
+
+	WriteLine();
+	WriteLine("I use the exact same procedure as in part b, to minimise chi^2 for the Breit-Wagner fit to the measurements on the Higgs boson");
+
+	vector[] simplex2 = {new vector(120, 2, 9), new vector(130, 2, 9), new vector(120, 2.10, 10), new vector(130, 2.10, 10)};
+	res = mini.simplex(D, simplex2, 1e-12);
+	res.print("Result is:");
+	WriteLine($"With {mini.counter} iterations and chi^2 = {D(res)}");
+
+	WriteLine($"\nThus, I have found the mass of the Higg's boson to be {res[0]} and the experimental width to be {res[1]}.");
+	WriteLine($"This is, with an estimated error of +-1, {vector.approx(res[0],125.3, 0.8) ?  "in" : "not in"} accordance with theoretical values.");
+
+	WriteLine("This result occured after fewer iterations than my quasi newton routine, and also even despite poorer initial guesses!");	
+
+}
+
+
+
 
 public static double F(double E, double m, double G, double A){
 	return A/(Pow(E-m, 2)+G*G/4);

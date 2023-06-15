@@ -1,0 +1,29 @@
+set terminal svg font "sans, 18" background "black"
+
+
+FILEA = "tabvalues.data"
+FILEB1 = "intervalues1.data"
+FILEB2 = "intervalues2.data"
+
+##############################################################################
+
+set border lc "white"
+set ylabel "y" tc "white"
+set xlabel "x" tc "white"
+set xtics -1, 0.5, 1 tc "white" border nomirror out
+set ytics -1, 0.5, 1 border nomirror out tc "white"
+set title "Interpolating function using ANN" tc "white"
+
+
+set key at -0.20,0.9 tc "white" font ",12"
+
+plot [-1:1][-1:1]\
+	FILEA with lines lt 1  lc rgb "orchid" \
+	title "Cos(5x-1)*Exp(-x*x)", \
+	FILEB1 pt 7 ps 0.3 lc rgb "gold" \
+	title "After one training", \
+	FILEB2 pt 7 ps 0.3 lc rgb "forest-green" \
+	title "After five trainings", \
+
+
+

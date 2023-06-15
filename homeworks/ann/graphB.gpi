@@ -1,0 +1,38 @@
+set terminal svg font "sans, 18" background "black"
+
+
+FILEA = "derivatives.data"
+
+##############################################################################
+
+set border lc "white"
+set ylabel "y" tc "white"
+set xlabel "x" tc "white"
+set xtics -1, 0.5, 1 tc "white" border nomirror out
+set ytics -1, 0.5, 1 border nomirror out tc "white"
+set title "Derivatives with ANN" tc "white"
+
+
+set key at -0.50,0.9 tc "white" font ",10"
+set key box width 1 height 3 opaque
+
+f(x) = cos(x)
+
+plot [-1.5:1.5][-1.1:1.1]\
+	f(x) with lines lt 1  lc rgb "orchid" \
+	title "Cos(x)", \
+	FILEA pt 7 ps 0.3 lc rgb "orchid" \
+	title "Trained interpolation", \
+	-sin(x) with lines lt 1 lc rgb "red" title "-Sin(x)", \
+	FILEA using ($1):($3) pt 7 ps 0.3 lc rgb "red" \
+	title "First derivative", \
+	-cos(x) with lines lt 1 lc rgb "gold" title "-Cos(x)", \
+	FILEA using ($1):($4) pt 7 ps 0.3 lc rgb "gold" \
+	title "Second derivative", \
+	sin(x) with lines lt 1 lc rgb "light-blue" title "sin(x)", \
+	FILEA using ($1):($5) pt 7 ps 0.3 lc rgb "light-blue" \
+	title "Antiderivative"
+	
+
+
+
