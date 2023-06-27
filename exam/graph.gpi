@@ -1,0 +1,28 @@
+set terminal svg font "sans, 18" background "black"
+
+
+FILE = "derivatives.data"
+
+##############################################################################
+
+set border lc "white"
+set ylabel "y" tc "white"
+set xlabel "x" tc "white"
+set xtics -1, 0.1, 1 tc "white" border nomirror out
+set ytics -50, 5, 50 border nomirror out tc "white"
+set title "Comparing second derivatives" tc "white"
+
+f(x) = -2*exp(-x)*(12*cos(5*x-1) - 5*sin(5*x-1))
+
+set key top right tc "white" font ",12"
+
+plot [-0.7:-0.35][30:47]\
+	FILE using ($1):($2) pt 7 ps 0.3 lc rgb "gold" \
+	title "Cubic subspline", \
+	FILE using ($1):($3) pt 7 ps 0.3 lc rgb "forest-green" \
+	title "Quartic subspline", \
+	f(x) with lines lt 1  lc rgb "orchid" \
+	title "Analytic"
+
+
+

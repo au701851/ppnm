@@ -1,0 +1,29 @@
+==================================================
+I test my cubic sub spline on tabulated values from the function f(x) = exp(-x)*cos(5x-1)
+
+Testing build and subspline.evaluate()...
+... PASSED 50 random samples with relative accuracy of 0.001
+
+Testing subspline.derivative()...
+... PASSED 50 random samples with relative accuracy of 0.01
+
+Testing second derivative...
+... PASSED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.199708505533829
+
+Testing definite integral function subspline.integrate(A, B)...
+... PASSED 50 random samples with relative accuracy of 0.0001
+
+==================================================
+I build a quartic spline, which shold give me a continuous second derivative.
+
+Testing build and subspline.evaluate()...
+... PASSED 50 random samples with relative accuracy of 0.0001
+
+Testing subspline.derivative()...
+... PASSED 50 random samples with relative accuracy of 0.01
+
+Testing second derivative...
+... PASSED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.0420668459951423
+
+==================================================
+I plot the second derivatives of my two splines in Derivatives.svg

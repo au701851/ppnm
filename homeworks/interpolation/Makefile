@@ -4,14 +4,16 @@ MKEXE = mcs -target:exe -out:$@ $(DLLS) $(CODE)
 MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 DIR = ../../math_resources
 
-all: Out.txt Linear_interpolation.svg Q_interpolation.svg
+all: Out.txt Linear_interpolation.svg Q_interpolation.svg C_interpolation.svg
 
 Linear_interpolation.svg: graphA.gpi Out.txt tab_values_sine.data spline_values_sine.data
 	gnuplot $<
 Q_interpolation.svg: graphB.gpi Out.txt tab_values_sine.data qspline_values_sine.data
 	gnuplot $<
+C_interpolation.svg: graphC.gpi cspline.data
+	gnuplot $< >$@
 
-Out.txt: main.exe
+Out.txt tab_values_sine.data spline_values_sine.data qspline_values_sine.data cspline.data: main.exe
 	mono $<  > $@
 
 main.exe: main.cs qspline.dll matrix.dll

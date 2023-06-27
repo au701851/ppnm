@@ -2,7 +2,7 @@ using System;
 using static System.Math;
 using static System.Console;
 public class spline{
-	public vector x, y, a, b, c;
+	public vector x, y, a, b, c, d;
 	public int len;
 	public string mode;
 	
@@ -14,28 +14,116 @@ public class spline{
 		a = new double[len-1];
 		b = new double[len-1];
 		c = new double[len-1];
+		d = new double[len-1];
 		if(_mode == "l")
 			this.linterp();
 		if(_mode == "q")
 			this.qinterp();
+		if(_mode == "c")
+			this.cinterp();
 		this.mode = _mode;
 	}
 
 	public double evaluate(double z){
 		if(mode == "l") return linterpevaluate(z);
-		else if(mode == "q") return qinterpevaluate(z);
+		else if(mode == "q") return qinterpevaluate(z);		
+		else if(mode == "c") return cinterpevaluate(z);
 		else throw new Exception("Choose a mode");
 	}
 	public double integral(double z){
 		if(mode == "l") return linterpInteg(z);
 		else if(mode == "q") return qinterpInteg(z);
+		else if(mode == "c") return cinterpInteg(z);
 		else throw new Exception("Choose a mode");
 	}
 	public double derivative(double z){
 		if(mode == "l") throw new Exception("You're in linear interpolation mode, where the derivative is not continuos.");
 		else if(mode == "q") return qinterpderivative(z);
+		else if(mode == "c") return cinterpderivative(z);
 		else throw new Exception("Choose a mode");
 	}
+	public double derivative2nd(double z){
+		if(mode == "l" || mode == "q") throw new Exception("Second dericative is only available in cubic mode");
+		else if(mode == "c") return cinterp2derivative(z);
+		else throw new Exception("Choose a mode"); 
+	}
+
+
+	public void cinterp(){
+	//Build a cubic spline, Si(x) = yi + bi(x-xi) + ci(x-xi)^2 + di(x-xi)^3
+		//First construct vectors D, Q and B for finding bi
+		vector D = new vector(len);
+		vector Q = new vector(len);
+		vector B = new vector(len);
+		vector C = new vector(len); 
+
+		double dy = (y[1]-y[0]);
+		double h = (x[1]-x[0]);
+		double dyi, hi;
+		
+		D[0] = 2; Q[0] = 1; B[0] = 3*dy/h; C[0] = 0;
+		
+		for(int i = 0; i < len-2; i++){
+			dyi = (y[i+2]-y[i+1]); //dy_(i+1)
+			hi = (x[i+2] - x[i+1]); //h_(i+1)
+
+			D[i+1] = 2*h/hi + 2; 
+			Q[i+1] = h/hi;
+			B[i+1] = 3*(dy/h + dyi/hi*h/hi);
+			C[i+1] = 1;
+
+
+			dy = dyi;
+			h = hi;			
+		}
+		D[len-1] = 2; B[len-1] = 3*dy/h; Q[len-1] = 0;
+		
+		//Finding vector b by solving eq (22)
+		b = tridiag(C, D, Q, B);
+
+		//Finding c and d from b, and setting a = yi
+		for(int i = 0; i < len-1; i++){
+			hi = x[i+1]-x[i];
+			double pi = (y[i+1]-y[i])/hi;
+			
+			a[i] = y[i];
+			c[i] = 1.0/hi*(-2*b[i]-b[i+1]+3*pi);
+			d[i] = 1.0/hi/hi*(b[i]+b[i+1]-2*pi);
+
+		}	
+	}
+
+	public double cinterpevaluate(double z){
+		int i = binsearch(x, z);
+		return a[i] + b[i]*(z-x[i]) + c[i]*Pow((z-x[i]),2) + d[i]*Pow((z-x[i]), 3);
+	}
+
+	public double cinterpderivative(double z){
+		int i = binsearch(x, z);
+		return b[i] + 2*c[i]*(z-x[i]) + 3*d[i]*Pow(z-x[i], 2);
+	}
+
+	public double cinterp2derivative(double z){
+		int i = binsearch(x, z);
+		return 2*c[i] + 6*d[i]*(z-x[i]);
+	}
+
+	public double cinterpInteg(double z){
+		int j = binsearch(x, z);
+
+		double sum = 0; double dx;
+		for(int i = 0; i<j; i++){
+			dx = x[i+1]-x[i];
+			sum += a[j]*dx + b[i]/2*dx*dx + c[i]/3*dx*dx*dx + d[i]/4*dx*dx*dx*dx;
+		}
+		dx = z-x[j];
+		sum += a[j]*dx + b[j]/2*dx*dx + c[j]/3*dx*dx*dx + d[j]/4*dx*dx*dx*dx;
+		return sum;
+
+	}
+
+
+	
 
 	public void qinterp(){
 	// Build quadratic spline, yi(x) = a(x - xi)^2 + b(x-xi) + c
@@ -140,5 +228,29 @@ public class spline{
 			if(z <= x[mid]) j = mid; //z is in lower half
 		}
 		return i; //z is in interval (x[i]; x[i+1])
+	}
+
+	//Solves the tridiagonal set of eq aix_(i-1) + bixi + cix_(i+1) = di
+	//All vectors must have length n, but the routine assumes a1 = cn = 0
+	public static vector tridiag(vector a, vector b, vector c, vector d){
+		int n = d.size;
+		if((a.size != n) || (c.size != n) || (b.size != n))
+				throw new Exception("Vector a, b, c, d should have the same length. This routine sets a1=cn=0");
+
+		//Gauss elimination
+		for(int i = 1; i < n; i++){
+		double w = a[i]/b[i-1];
+		b[i] -= w*c[i-1];
+		d[i] -= w*d[i-1];
+		}
+
+		//backwards substitution
+		vector x = new vector(n);
+		x[n-1] = d[n-1]/b[n-1];
+		for(int i = n-2; i >= 0; i-=1)
+			x[i] = (d[i]-c[i]*x[i+1])/b[i];
+
+		return x;
+
 	}
 }

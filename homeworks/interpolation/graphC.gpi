@@ -1,0 +1,18 @@
+set terminal svg font "Times New Roman, 18"
+set fit logfile "fit.log"
+set fit quiet
+#Setting fit quiet stops it from printing its log on screen
+
+set xlabel "x"
+set ylabel "y"
+FILE = "cspline.data"
+
+set key top right
+set title "Gnuplot vs Me"
+
+plot [0:10][0:1.5]\
+	FILE using ($5):($6) with points pt 7 ps 0.5 lc rgb "blue" \
+	title "Tabulated values",\
+	"" smooth csplines t "gnuplot cubic spline" lw 2,\
+	FILE using ($1):($2) with points pt 7 ps 0.3 lc rgb "red" \
+	title "my cubic spline"
