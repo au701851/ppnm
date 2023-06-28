@@ -8,10 +8,15 @@ Testing subspline.derivative()...
 ... PASSED 50 random samples with relative accuracy of 0.01
 
 Testing second derivative...
-... PASSED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.199708505533829
+... FAILED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.257040407257364
 
 Testing definite integral function subspline.integrate(A, B)...
 ... PASSED 50 random samples with relative accuracy of 0.0001
+
+==================================================
+To test the advantages of calculating the splines with derivatives, I attempt to make a cubic spline of a step function.
+I compare my subspline with my cubic spline from the interpolation homework, to see if I can get rid of unwanted wiggles.
+A graph comparing the two splines is in Wiggle.svg
 
 ==================================================
 I build a quartic spline, which shold give me a continuous second derivative.
@@ -23,7 +28,7 @@ Testing subspline.derivative()...
 ... PASSED 50 random samples with relative accuracy of 0.01
 
 Testing second derivative...
-... PASSED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.0420668459951423
+... PASSED 50 random samples with relative accuracy of 0.1 - average accuracy was 0.0520537879399661
 
 ==================================================
 I plot the second derivatives of my two splines in Derivatives.svg

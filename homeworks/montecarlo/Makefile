@@ -5,7 +5,7 @@ MKLIB = mcs -target:library -out:$@ $(DLLS) $(CODE)
 MKSVG = gnuplot $(filter %.gpi, $^)
 DIR = ../../math_resources
 
-All: GraphB.svg GraphC.svg
+All: GraphB.svg 
 
 GraphC.svg: rsspoints.data graphC.gpi
 	$(MKSVG) >$@

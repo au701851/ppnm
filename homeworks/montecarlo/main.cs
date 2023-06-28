@@ -67,7 +67,7 @@ public static void partB(){
 	WriteLine($"quasiresult = {result.Item1} with error {result.Item2}");
 
 	WriteLine("\nIt appears that the convergence is better here. I compare the convergence of the two methods by performing the 4PI integral from the part a multiple times with different Ns and recording the relative error");
-	WriteLine($"I plotted my findings in {fileB1.Replace(".data", ".svg")}");
+	WriteLine($"I plotted my findings in GraphB.svg");
 }
 
 public static void comparison(string file){
@@ -86,10 +86,9 @@ public static void comparison(string file){
 
 public static void partC(){
 	WriteLine("Testing my rss-montecarlo integrator on the good ol' triangle integral from the other parts.");
-	var result = montecarlo.rssmc((a) => (a[0]), new vector(0,0), new vector(3,3), 10000000);
+	var result = montecarlo.rssmc((a) => (a[0]), new vector(0,0), new vector(3,3), 10000);
 	WriteLine($"Rss result = {result.Item1} with error {result.Item2}, should be 13.5 with {montecarlo.COUNT} iterations");
 
-	WriteLine("\nI have built in the option to record the 'path' of integration, that is the random points. I show these in some file");
 	
 }
 
@@ -98,14 +97,16 @@ public static void recordingpath(string file){
 	Func<vector, double> f = delegate(vector a)
 				{if(a.norm() < 0.8) return 1; 
 				else return 0;};
-				
-	var result = montecarlo.rssmc(f, new vector(0,0), new vector(1,1), 100000, points);
+
+	int N = 1000000;
+	var result = montecarlo.rssmc(f, new vector(0,0), new vector(1,1), N, points);
 	var outfile = new System.IO.StreamWriter(file);
 	outfile.WriteLine("x	y");
 	foreach(vector point in points)
 		outfile.WriteLine($"{point[0]}	{point[1]}");
 	outfile.Close();
 	WriteLine($"Final integral = {result.Item1} +- {result.Item2}");
+	WriteLine($"N/number of points = {N/points.Count}");
 }
 
 }

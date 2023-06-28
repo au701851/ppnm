@@ -6,12 +6,13 @@ public class main{
 	public static Random rand; 
 	public static Func<double, double> f, delf, delf2, F; 
 	public static vector x, y, dely;
-	public static string file1;
+	public static string file1, file2;
 
 public static void Main(string[] args){
 	foreach(var arg in args){
 		var words = arg.Split(":");
 		if(words[0] == "-file1") file1 = words[1];
+		if(words[0] == "-file2") file2 = words[1];
 	}
 	WriteLine("==================================================");
 	WriteLine("I test my cubic sub spline on tabulated values from the function f(x) = exp(-x)*cos(5x-1)");
@@ -35,6 +36,35 @@ public static void Main(string[] args){
 	test_integrate(ss);
 
 	WriteLine("\n==================================================");
+	WriteLine("To test the advantages of calculating the splines with derivatives, I attempt to make a cubic spline of a step function.");
+	WriteLine("I compare my subspline with my cubic spline from the interpolation homework, to see if I can get rid of unwanted wiggles."); 
+
+	vector x1 = new vector(10);
+	vector y1 = new vector(10);
+	vector dely1 = new vector(10);
+	for(int i = 0; i<x1.size; i++){
+		x1[i] = i;
+		y1[i] = 0; dely1[i] = 0;
+		if(i > x1.size/2) y1[i] = 1;
+	}
+	subspline ss1 = new subspline(x1, y1, dely1);
+	subspline cs1 = new subspline(x1, y1, null);
+
+	
+	var outfile = new System.IO.StreamWriter(file2.ToLower() +".data");
+	outfile.WriteLine("##x	cubic 	quartic");
+	for(int i = 0; i<800; i++){
+		double a = (i+1.0)/100;
+		if(i<x1.size) outfile.WriteLine($"{a}	{ss1.evaluate(a)}	{cs1.evaluate(a)}	{x1[i]}	{y1[i]}");
+		else outfile.WriteLine($"{a}	{ss1.evaluate(a)}	{cs1.evaluate(a)}");
+	}
+	outfile.Close();
+
+	WriteLine($"A graph comparing the two splines is in {file2}.svg");
+	
+	
+	
+	WriteLine("\n==================================================");
 	WriteLine("I build a quartic spline, which shold give me a continuous second derivative.");
 
 	subspline qs = new subspline(x,y,dely, 4);
@@ -44,7 +74,7 @@ public static void Main(string[] args){
 	WriteLine("\n==================================================");
 	WriteLine($"I plot the second derivatives of my two splines in {file1}.svg");	
 
-	var outfile = new System.IO.StreamWriter(file1.ToLower() +".data");
+	outfile = new System.IO.StreamWriter(file1.ToLower() +".data");
 	outfile.WriteLine("##x	cubic 	quartic");
 	for(int i = 0; i<900; i++){
 		double a = -0.95 + 2.0*i/1000;

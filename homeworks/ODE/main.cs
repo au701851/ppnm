@@ -19,7 +19,7 @@ public static void partA(){
 	//U'' = -U
 	Func<double, vector, vector> f = (x, y) => (new vector(y[1], -y[0]));
 	rungekutta myRK = new rungekutta(f);
-	vector A = myRK.driver(0, new vector(0,1), 2*PI, 0.01, xs, ys);
+	myRK.driver(0, new vector(0,1), 2*PI, 0.01, xs, ys);
 	var outfile = new StreamWriter("diffeq1.data");
 	for(int i = 0; i<xs.size; i++){
 		if(ys[i].size != 2) throw new Exception("Something went wrong in constructing y");
@@ -32,7 +32,7 @@ public static void partA(){
 	xs = new genlist<double>(); ys = new genlist<vector>();
 	f = (x,y) => (new vector(y[1], y[0]));
 	myRK = new rungekutta(f);
-	A = myRK.driver(0, new vector(1,-1), 2*PI, 0.01, xs, ys);
+	myRK.driver(0, new vector(1,-1), 2*PI, 0.01, xs, ys);
 	outfile = new StreamWriter("diffeq2.data");
 	for(int i = 0; i<xs.size; i++){
 		if(ys[i].size != 2) throw new Exception("Something went wrong in constructing y");
@@ -53,7 +53,7 @@ public static void partA(){
 	xs = new genlist<double>(); ys = new genlist<vector>();
 	
 	myRK = new rungekutta(f);
-	A = myRK.driver(0, new vector(PI-0.1, 0.0), 10, 0.01, xs, ys);
+	myRK.driver(0, new vector(PI-0.1, 0.0), 10, 0.01, xs, ys);
 	outfile = new StreamWriter("diffeq3.data");
 	for(int i = 0; i<xs.size; i++){
 		if(ys[i].size != 2) throw new Exception("Something went wrong in constructing y");

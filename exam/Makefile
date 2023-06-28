@@ -6,13 +6,15 @@ MKSVG = gnuplot $(filter %.gpi, $^) >$@
 DIR = ../math_resources
 
 
-All: Out.txt Derivatives.svg
+All: Out.txt Derivatives.svg Wiggle.svg
 
 Derivatives.svg: graph.gpi derivatives.data
 	$(MKSVG)
+Wiggle.svg: graph2.gpi wiggle.data
+	$(MKSVG)
 
-Out.txt derivatives.data: main.exe
-	mono $< >$@ -file1:Derivatives
+Out.txt derivatives.data wiggle.data: main.exe
+	mono $< >$@ -file1:Derivatives -file2:Wiggle
 
 main.exe: main.cs matrix.dll subspline.dll
 	$(MKEXE) 

@@ -1,0 +1,27 @@
+set terminal svg font "sans, 18" background "black"
+
+
+FILE = "wiggle.data"
+
+##############################################################################
+
+set border lc "white"
+set ylabel "y" tc "white"
+set xlabel "x" tc "white"
+set xtics -1, 1, 11 tc "white" border nomirror out
+set ytics 0, 0.5, 2 border nomirror out tc "white"
+set title "Comparing cubic splines" tc "white"
+
+
+set key left reverse Left tc "white" font ",12"
+
+plot [0:10][-0.2:1.2]\
+	FILE using ($1):($2) with lines lt 1 lc rgb "gold" \
+	title "Cubic subspline with derivatives", \
+	FILE using ($1):($3) with lines lt 1 lc rgb "forest-green" \
+	title "Natural cubic spline", \
+	FILE using ($4):($5) with points pt 7 ps 0.5 lc rgb "orchid" \
+	title "Data"
+
+
+

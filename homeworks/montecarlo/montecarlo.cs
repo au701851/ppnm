@@ -6,11 +6,16 @@ public class montecarlo{
 
 public static Random rnd = new Random();
 public static int[] bases = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67}; //Set of co prime numbers for Halton
-public static int NMIN = 100; //lowest amount of points in rssmc
+public static int NMIN = 500; //lowest amount of points in rssmc
 public static int COUNT = 0;
 
+public static double rsssum;
+public static double rssvar;
+public static int N0;
+public static double V0; 
+
 //Integrate function f in region between vectors a and b
-public static (double, double) plainmc(Func<vector,double> f, vector a, vector b, int N, List<vector> points = null, double rsssum = double.NaN, double rssvar = double.NaN){
+public static (double, double) plainmc(Func<vector,double> f, vector a, vector b, int N, List<vector> points = null, bool rss = false){
 	int dim = a.size; //dimension of the problem
 	double V = 1;
 	for(int i = 0; i<dim; i++)
@@ -30,17 +35,32 @@ public static (double, double) plainmc(Func<vector,double> f, vector a, vector b
 	
 	double f_avg = sum/N; 
 	double sigma = Sqrt(sum2/N - f_avg*f_avg); //error is squareroot of variance
-
+	
 	//passing values on to rss if needed
-	if(!double.IsNaN(rsssum)) rsssum += sum;
-	if(!double.IsNaN(rssvar)) rssvar += sigma*sigma;
+	if(rss && !double.IsNaN(sum/N*V)) {rsssum += sum/N*V;}
+	if(rss) {rssvar += sigma*sigma;}
 	
 	var result = (f_avg*V, sigma*V/Sqrt(N)); //formula (2) and (3) in the material
 	return result;
 
 }//method end
 
-public static (double, double) rssmc(Func<vector, double> f, vector a, vector b, int N, List<vector> points = null, double rsssum = double.NaN, double rssvar = double.NaN){
+
+public static (double, double) rssmc(Func<vector, double> f, vector a, vector b, int N, List<vector> points = null){
+	rsssum = 0; rssvar = 0; N0 = N;
+	
+	int dim = a.size;
+	double V = 1;
+	for(int i = 0; i<dim; i++)
+		V*=Abs(b[i]-a[i]); //volume of multidimensional box
+	V0 = V;
+	rssmc_recursive(f, a, b, N, points); 
+	return (rsssum, Sqrt(rssvar));
+}
+
+
+
+public static (double, double) rssmc_recursive(Func<vector, double> f, vector a, vector b, int N, List<vector> points = null){	
 	COUNT += 1;
 	int dim = a.size;
 	double V = 1;
@@ -48,15 +68,14 @@ public static (double, double) rssmc(Func<vector, double> f, vector a, vector b,
 		V*=Abs(b[i]-a[i]); //volume of multidimensional box
 	
 	if(N<NMIN) {
-		plainmc(f, a, b, N, points, rsssum, rssvar);
-		var finalresult = (rsssum/N*V, Sqrt(rssvar)/Sqrt(N)*V);
+		plainmc(f, a, b, N, points, true);
+		var finalresult = (rsssum, Sqrt(rssvar)/Sqrt(N0)*V0);
 		return finalresult;
 		}
 
 	
 	vector newb, newa;
 	
-	double sum = 0; double var = 0; //variance
 
 	
 	vector[] suberr = new vector[dim];
@@ -66,31 +85,28 @@ public static (double, double) rssmc(Func<vector, double> f, vector a, vector b,
 		newb[i] = (b[i]-a[i])/2 + a[i];
 		newa[i] = newb[i];
 		
-		var up = plainmc(f, newa, b, NMIN/dim/2, points, sum, var);
-		var low = plainmc(f, a, newb, NMIN/dim/2, points, sum, var);
-		
-		suberr[i] = new vector(up.Item2*Sqrt(NMIN/dim/2)/V*2, low.Item2*Sqrt(NMIN/dim/2)/V*2);
+		var up = plainmc(f, newa, b, NMIN/dim/2, points);
+		var low = plainmc(f, a, newb, NMIN/dim/2, points);
+		suberr[i] = new vector(up.Item2*up.Item2, low.Item2*low.Item2);
 		if(suberr[i].norm() >= suberr[maxsuberr].norm()) maxsuberr = i;
 	}
 
 	double ratio = suberr[maxsuberr][0]/(suberr[maxsuberr].norm());
-	if(double.IsNaN(ratio)) ratio = 0;
+	if(double.IsNaN(ratio)) ratio = 0; 
 	int NUP = Convert.ToInt32((N-NMIN)*ratio);
 	int NLOW = (N-NMIN)-NUP;
 	
 	newb = b.copy(); newa = a.copy();
 	
-	newb[maxsuberr] = (b[maxsuberr]-a[maxsuberr])/2 + a[maxsuberr];
+	newb[maxsuberr] = (b[maxsuberr]+a[maxsuberr])/2;
 	newa[maxsuberr] = newb[maxsuberr];
-	var upper = rssmc(f, newa, b, NUP, points, sum, var);
-	var lower = rssmc(f, a, newb, NLOW, points, sum, var);
+	rssmc_recursive(f, newa, b, NUP, points);
+	rssmc_recursive(f, a, newb, NLOW, points);
 
-	if(!double.IsNaN(rsssum)) rsssum += sum;
-	else {rsssum = sum;}
-	if(!double.IsNaN(rssvar)) rssvar += var;
-	else rssvar = var;
+
 	
-	var result = (rsssum/N*V, Sqrt(rssvar)/Sqrt(N)*V);
+	
+	var result = (rsssum, rssvar);
 	return result;
 	
 	

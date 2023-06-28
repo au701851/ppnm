@@ -77,9 +77,7 @@ public static double find_lowest_energy(double rmax, double dr){
 	if(testing){
 		//The lowest energy is the first eigenvalue
 		WriteLine($"Calculated lowest energy: {H[0,0]} \n(Should be -(E_h)/2 = -0.5 in units of E_h)");
-		for(int i = 0; i < H.size1; i++){
-			WriteLine($"E_0/E_{i} = {H[0,0]/H[i,i]} (should be {i^2})");
-		}
+		
 		
 		WriteLine($"I expect f to be given by r*psi100, and can as such write out the expected values of f. These are in the data files 'first eigenvector' and 'second eigenvector', and are plotted in 'Lowest eigenvectors'.");
 		WriteLine($"I found these values to be off from their expected values, and realised that it had something to do with the normalisation:");
@@ -89,14 +87,14 @@ public static double find_lowest_energy(double rmax, double dr){
 
 		var outfile = new System.IO.StreamWriter("first_eigenvector.data");
 		var outfile2 = new System.IO.StreamWriter("second_eigenvector.data");
-		outfile.WriteLine($"Delta r		Exact result		Numerical result");
-		outfile2.WriteLine($"Delta r		Exact result		Numerical result");
+		outfile.WriteLine($"##Delta r		Exact result		Numerical result");
+		outfile2.WriteLine($"##Delta r		Exact result		Numerical result");
 		double theo_fi = 0;
 		for(int i = 0; i < V.size1; i++){
-			theo_fi = r[i]*1.0/Sqrt(PI)*Exp(-r[i]);
-			outfile.WriteLine($"{r[i]}	{theo_fi}	{V[i, 0]}");
-			theo_fi = r[i]*1.0/Sqrt(8.0*PI)*(1.0 - 1.0/2.0*r[i])*Exp(-r[i]/2);
-			outfile2.WriteLine($"{r[i]}	{theo_fi}	{V[i, 1]}");
+			theo_fi = 2*r[i]*Exp(-r[i]);
+			outfile.WriteLine($"{r[i]}	{theo_fi}	{V[i, 0]/Sqrt(dr)}");
+			theo_fi = r[i]*1.0/Sqrt(2.0)*(1.0 - 1.0/2.0*r[i])*Exp(-r[i]/2);
+			outfile2.WriteLine($"{r[i]}	{theo_fi}	{-V[i, 1]/Sqrt(dr)}");
 			}
 		outfile.Close();
 		outfile2.Close();
